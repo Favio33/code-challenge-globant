@@ -1,0 +1,27 @@
+[project]
+name = "code-challenge-globant"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "favio33",email = "favio.varillas36@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "sqlalchemy (>=2.0.39,<3.0.0)",
+    "flask (>=3.1.0,<4.0.0)",
+    "ruff (>=0.11.1,<0.12.0)",
+    "python-decouple (>=3.8,<4.0)",
+    "python-dotenv (>=1.0.1,<2.0.0)",
+    "psycopg2 (>=2.9.10,<3.0.0)",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+lint.select = ["E", "F", "I"]  # E: pycodestyle, F: pyflakes, I: isort
+lint.ignore = []
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
