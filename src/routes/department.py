@@ -26,5 +26,4 @@ def update_job():
 @main.route("/bulk", methods=["POST"])
 def bulk_upsert_job():
     db = Database.get_instance()
-    data = request.get_json()
-    return bulk_upsert(db, Department, data)
+    return bulk_upsert(db, Department, request)

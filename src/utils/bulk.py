@@ -2,7 +2,9 @@ from flask import jsonify
 from sqlalchemy.dialects.postgresql import insert
 
 
-def bulk_upsert(db_instance, model, data):
+def bulk_upsert(db_instance, model, request):
+
+    data = request.get_json()
 
     # Verify json content
     if not isinstance(data, list):
