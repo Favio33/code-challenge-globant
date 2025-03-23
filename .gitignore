@@ -12,3 +12,6 @@ poetry.lock
 
 # --- IDEs ---
 .vscode/
+
+# Dump data
+*payload.json
