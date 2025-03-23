@@ -1,7 +1,9 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 
 from database.db import Database
 from models.jobs import Jobs
+from utils.bulk import bulk_upsert
+from utils.update import update_id
 
 main = Blueprint("job_blueprint", __name__)
 
@@ -14,4 +16,15 @@ def get_department(job_id):
         if job:
             return jsonify(job.to_dict()), 200
         else:
-            return jsonify({'message': "Job not found"}), 404
+            return jsonify({"message": "Job not found"}), 404
+
+@main.route("/update", methods=["PUT"])
+def update_job():
+    db = Database.get_instance()
+    return update_id(db, Jobs, request)
+
+@main.route("/bulk", methods=["POST"])
+def bulk_upsert_job():
+    db = Database.get_instance()
+    data = request.get_json()
+    return bulk_upsert(db, Jobs, data)
