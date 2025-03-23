@@ -10,8 +10,8 @@ class HiredEmployees(Base):
     id = Column(BigInteger, primary_key=True)
     name = Column(String, nullable=False)
     datetime = Column(DateTime, nullable=True)
-    department_id = Column(BigInteger, ForeignKey("Department.id"))
-    job_id = Column(BigInteger, ForeignKey("Job.id"))
+    department_id = Column(BigInteger, ForeignKey("departments.id"))
+    job_id = Column(BigInteger, ForeignKey("jobs.id"))
     last_updated = Column(DateTime, nullable=False, server_default=func.now())
 
     def __init__(self, name: str, datetime: str, department_id: int, job_id: int, id: int = None):
