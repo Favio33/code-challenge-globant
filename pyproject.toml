@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [tool.ruff]
-line-length = 100
+line-length = 127
 target-version = "py311"
 lint.select = ["E", "F", "I"]  # E: pycodestyle, F: pyflakes, I: isort
 lint.ignore = []

@@ -1,7 +1,7 @@
 from flask import Flask
 
 from config import config
-from routes import department, hired_employees, jobs, aggregations
+from routes import aggregations, department, hired_employees, jobs
 
 app = Flask(__name__)
 
