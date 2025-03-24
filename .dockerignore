@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.git/
+.vscode
+.ruff_cache
+*payload.json
