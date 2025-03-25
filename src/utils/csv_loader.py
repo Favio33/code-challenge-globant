@@ -2,17 +2,19 @@ import numpy as np
 import pandas as pd
 
 
-def insert_historical_csv(file,
-                          model,
+def insert_historical_csv(model,
                           db_instance,
-                          batch_size=1000,
-                          has_header=True,
-                          columns=None):
+                          request):
+    file = request.files.get('file')
+    has_header = request.args.get("has_header", "true").lower() == "true"
+    batch_size = int(request.args.get("batch_size", 1000))
+    csv_schema = request.args.get("csv_schema", "").strip()
+    columns = None if has_header else [col.strip().lower() for col in csv_schema.split(',')] if csv_schema else None
 
     allowed_columns = set(model.__table__.columns.keys())
 
     if not file or not file.filename.endswith('.csv'):
-        return {"error": "Invalid file format. Please upload a CSV file."}
+        return {"error": "Invalid file format. Please upload a CSV file."}, 400
 
     with db_instance.get_session() as session:
         try:

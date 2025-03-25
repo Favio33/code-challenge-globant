@@ -31,9 +31,5 @@ def bulk_upsert_job():
 
 @department_bp.route('/upload-historical', methods=['POST'])
 def upload_csv():
-    file = request.files.get('file')
-    has_header = eval(request.args.get("has_header"))
-    batch_size = int(request.args.get("batch_size")) if request.args.get("batch_size") else 1000 
-    csv_headers =  None if has_header else [col.strip().lower() for col in request.args.get("csv_schema").split(',')]
     db = Database.get_instance()
-    return insert_historical_csv(file, Department, db, batch_size, has_header, csv_headers)
+    return insert_historical_csv(Department, db, request)
