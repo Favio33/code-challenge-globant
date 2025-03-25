@@ -15,12 +15,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/jobs/get/1",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/jobs/get/1",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"jobs",
@@ -46,12 +44,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/jobs/update?id=1",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/jobs/update?id=1",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"jobs",
@@ -83,12 +79,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/jobs/upload-historical?has_header=False&batch_size=1000&csv_schema=id,job",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/jobs/upload-historical?has_header=False&batch_size=1000&csv_schema=id,job",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"jobs",
@@ -127,12 +121,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/jobs/bulk",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/jobs/bulk",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"jobs",
@@ -153,12 +145,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/departments/get/1",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/departments/get/1",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"departments",
@@ -184,12 +174,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/departments/update?id=1",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/departments/update?id=1",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"departments",
@@ -211,12 +199,10 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/departments/upload-historical?has_header=False&batch_size=1000&csv_schema=id,department",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/departments/upload-historical?has_header=False&batch_size=1000&csv_schema=id,department",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"departments",
@@ -255,12 +241,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/departments/bulk",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/departments/bulk",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"departments",
@@ -281,12 +265,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/employees/get/1",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/employees/get/1",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"employees",
@@ -312,12 +294,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/employees/update?id=1",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/employees/update?id=1",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"employees",
@@ -349,12 +329,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/employees/upload-historical?has_header=False&batch_size=1000&csv_schema=id,name,datetime,department_id,job_id",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/employees/upload-historical?has_header=False&batch_size=1000&csv_schema=id,name,datetime,department_id,job_id",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"employees",
@@ -384,12 +362,10 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/employees/bulk",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/employees/bulk",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"employees",
@@ -410,12 +386,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/aggregations/hiring-above-average",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/aggregations/hiring-above-average",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"aggregations",
@@ -431,12 +405,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/aggregations/count-2021-quarters",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/aggregations/count-2021-quarters",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"aggregations",
