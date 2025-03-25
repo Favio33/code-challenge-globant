@@ -194,5 +194,6 @@ If the API is deployed to AWS `https://ukmfxwjavi.us-east-1.awsapprunner.com` up
 
 > [!IMPORTANT]
 > The database and tables must be created previously
+
 > [!CAUTION]
 > All tables will be truncated to present this project
