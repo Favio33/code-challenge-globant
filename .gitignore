@@ -1,0 +1,17 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+
+# --- Poetry ---
+.cache/
+poetry.lock
+
+# --- Virtual Environments ---
+.env
+.venv/
+
+# --- IDEs ---
+.vscode/
+
+# Dump data
+*payload.json
