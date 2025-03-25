@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir CSV a PostgreSQL</title>
+</head>
+<body>
+    <h2>Subir Archivo CSV a PostgreSQL</h2>
+
+    <!-- Selección de la tabla destino -->
+    <label for="tableSelect">Selecciona la tabla:</label>
+    <select id="tableSelect">
+        <option value="departments">Departments</option>
+        <option value="jobs">Jobs</option>
+        <option value="employees">Hired Employees</option>
+    </select>
+
+    <br><br>
+
+    <!-- Checkbox para indicar si el CSV tiene encabezado -->
+    <label>
+        <input type="checkbox" id="headerCheckbox" checked>
+        El archivo tiene encabezado
+    </label>
+
+    <br><br>
+
+    <!-- Input para definir los nombres de las columnas (solo si no hay encabezado) -->
+    <label for="columnsInput">Nombres de las columnas (separadas por coma):</label>
+    <input type="text" id="columnsInput" placeholder="id, job_name, salary" disabled>
+
+    <br><br>
+
+    <!-- Input para seleccionar el archivo CSV -->
+    <input type="file" id="fileInput" accept=".csv">
+    <button onclick="uploadFile()">Subir</button>
+
+    <p id="status"></p>
+
+    <script>
+        document.getElementById('headerCheckbox').addEventListener('change', function () {
+            document.getElementById('columnsInput').disabled = this.checked;
+        });
+
+        async function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const tableSelect = document.getElementById('tableSelect');
+            const headerCheckbox = document.getElementById('headerCheckbox');
+            const columnsInput = document.getElementById('columnsInput');
+            const statusText = document.getElementById('status');
+
+            if (fileInput.files.length === 0) {
+                statusText.textContent = "Por favor, selecciona un archivo.";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            const hasHeader = headerCheckbox.checked;
+            const csvSchema = columnsInput.value.trim();
+            const batchSize = 1000;  // Puedes cambiar este valor
+
+            // Validación del esquema si no hay encabezado
+            if (!hasHeader && csvSchema === "") {
+                statusText.textContent = "Debes proporcionar los nombres de las columnas si el CSV no tiene encabezado.";
+                return;
+            }
+
+            // Construcción de la URL con los parámetros
+            const table = tableSelect.value;
+            const url = `/api/${table}/upload-historical?has_header=${hasHeader}&batch_size=${batchSize}&csv_schema=${encodeURIComponent(csvSchema)}`;
+
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    body: formData
+                });
+
+                const result = await response.json();
+                statusText.textContent = result.message || result.error;
+            } catch (error) {
+                statusText.textContent = "Error al subir el archivo.";
+            }
+        }
+    </script>
+</body>
+</html>
